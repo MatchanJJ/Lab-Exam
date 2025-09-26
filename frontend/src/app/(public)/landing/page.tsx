@@ -196,7 +196,7 @@ export default function LandingPage() {
       </section>
 
     <section id="about" className="min-h-screen mt-20 flex items-center">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div className="mt-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="mt-20 grid lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-6">
             <h2 className="mt-40 text-4xl font-bold text-gray-900">About UM-CCE</h2>

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useAuth } from "@/hooks/auth";
@@ -54,7 +55,11 @@ export default function Dashboard() {
           <CardHeader className="">
             <CardTitle className="text-2xl flex items-center gap-3">
               <div className="bg-[#EDCE5C] p-2 rounded-full">
-                <User className="h-6 w-6 text-[#188c2d]" />
+                <img
+                  src="/nick.jpg"
+                  alt="UM-CCE Logo"
+                  className="h-10 w-10 object-cover rounded-full"
+                />
               </div>
               Hello, {user.name}! 🎓
             </CardTitle>

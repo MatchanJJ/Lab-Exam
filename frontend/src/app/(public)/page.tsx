@@ -184,7 +184,10 @@ export default function LandingPage() {
             {programs.map((program, index) => {
               const Icon = program.icon;
               return (
-                <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
+                <Card
+                  key={index}
+                  className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg flex flex-col h-full"
+                >
                   <CardHeader>
                     <div className="flex items-center justify-between mb-4">
                       <div className="w-12 h-12 bg-gradient-to-r from-[#188c2d] to-[#004A0E] rounded-lg flex items-center justify-center">
@@ -199,13 +202,15 @@ export default function LandingPage() {
                       {program.title}
                     </CardTitle>
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className="flex flex-col flex-1">
                     <CardDescription className="text-gray-600 mb-6">
                       {program.description}
                     </CardDescription>
-                    <Button className="w-full bg-[#188c2d] hover:bg-[#004A0E] text-[#F2FFFC]" asChild>
-                      <Link href="/register">Learn More</Link>
-                    </Button>
+                    <div className="mt-auto">
+                      <Button className="w-full bg-[#188c2d] hover:bg-[#004A0E] text-[#F2FFFC]" asChild>
+                        <Link href="/register">Learn More</Link>
+                      </Button>
+                    </div>
                   </CardContent>
                 </Card>
               );
@@ -216,7 +221,7 @@ export default function LandingPage() {
 
       {/* About Section */}
       <section id="about" className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="min-h-[100vh] flex flex-col justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-6">
               <h2 className="text-4xl font-bold text-gray-900">About UM-CCE</h2>
@@ -302,6 +307,9 @@ export default function LandingPage() {
                 <div className="hover:text-[#F2FFFC] transition-colors cursor-pointer">Computer Science</div>
                 <div className="hover:text-[#F2FFFC] transition-colors cursor-pointer">Information Technology</div>
                 <div className="hover:text-[#F2FFFC] transition-colors cursor-pointer">Information Systems</div>
+                <div className="hover:text-[#F2FFFC] transition-colors cursor-pointer">Library and Information Science</div>
+                <div className="hover:text-[#F2FFFC] transition-colors cursor-pointer">Entertainment and Multimedia Computing</div>
+                <div className="hover:text-[#F2FFFC] transition-colors cursor-pointer">Multimedia Arts</div>
               </div>
             </div>
           </div>
