@@ -1,11 +1,11 @@
 'use client'
-import { SignUpForm } from "./SignUpForm"
 
+import { SignUpForm } from "./SignUpForm";
 
-export default function Page() {
+export default function RegisterPage() {
   return (
-    <div className="flex min-h-svh w-full">
-        <SignUpForm />
-     </div>
-  )
+    <div className="py-12 px-4">
+      <SignUpForm />
+    </div>
+  );
 }
