@@ -1,6 +1,3 @@
-# 🎓 CS-15 Lab Activity - Registration & Login System
-
-A complete registration and login system built with **Laravel (Backend)** and **Next.js (Frontend)**.
 
 ## ⚡ Quick Start
 
