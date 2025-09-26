@@ -61,148 +61,161 @@ export function LoginForm() {
   };
 
   return (
-    <div
-      className="min-h-screen 
-    flex items-center justify-center bg-gradient-to-br
-     from-gray-50  to-gray-100
-      dark:from-slate-950 dark:via-slate-900
-       dark:to-slate-950 p-6 relative overflow-hidden
-       w-full"
-    >
-      <Card className="w-full max-w-sm rounded-lg border-0 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl shadow-xl shadow-primary/10 overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-primary/80 via-primary to-primary/80"></div>
+    <div className="min-h-screen bg-gradient-to-br from-[#F2FFFC] to-[#F2FFFC]/90 flex items-center justify-center p-4">
+      <div className="w-full max-w-6xl bg-white rounded-3xl shadow-2xl overflow-hidden">
+        <div className="grid lg:grid-cols-2 min-h-[600px]">
+          {/* Left Side - Login Form */}
+          <div className="flex flex-col justify-center p-8 lg:p-12">
+            <div className="max-w-md mx-auto w-full">
+              {/* Header */}
+              <div className="text-center mb-8">
+                <div className="flex items-center justify-center mb-4">
+                  <div className="bg-[#EDCE5C] p-3 rounded-full">
+                    <img
+                      src="/CCE_Logo.png"
+                      alt="UM-CCE Logo"
+                      className="h-8 w-8 object-contain"
+                    />
+                  </div>
+                </div>
+                <h1 className="text-3xl font-bold text-[#005E11]">Welcome Back</h1>
+                <p className="text-gray-600 mt-2">Sign in to your UM-CCE account</p>
+              </div>
 
-        <CardHeader className="pb-2 pt-8 text-center">
-          <div className="flex flex-col items-center justify-center gap-3">
-            <CardTitle className="text-xl font-semibold tracking-tight text-slate-900 dark:text-white">
-              Welcome back
-            </CardTitle>
-            <p className="text-sm text-slate-500 dark:text-slate-400 -mt-1">
-              Sign in to your account to continue
-            </p>
+              {/* Error Display */}
+              {errors && Object.keys(errors).length > 0 && (
+                <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 mb-6 rounded-lg flex items-center gap-2">
+                  <CircleAlert className="h-4 w-4 flex-shrink-0" />
+                  <span className="text-sm">{errors[Object.keys(errors)[0]][0]}</span>
+                </div>
+              )}
+
+              {/* Login Form */}
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="space-y-2">
+                  <Label htmlFor="login" className="text-sm font-medium text-gray-700">
+                    Username or Email
+                  </Label>
+                  <div className="relative">
+                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+                    <Input
+                      id="login"
+                      name="login"
+                      type="text"
+                      autoComplete="username"
+                      placeholder="Enter your username or email"
+                      className="pl-10 h-12 border-gray-300 focus:border-[#005E11] focus:ring-[#005E11] rounded-lg"
+                      value={formData.login}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="password" className="text-sm font-medium text-gray-700">
+                    Password
+                  </Label>
+                  <div className="relative">
+                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+                    <Input
+                      id="password"
+                      name="password"
+                      type={showPassword ? "text" : "password"}
+                      autoComplete="current-password"
+                      placeholder="Enter your password"
+                      className="pl-10 pr-12 h-12 border-gray-300 focus:border-[#005E11] focus:ring-[#005E11] rounded-lg"
+                      value={formData.password}
+                      onChange={handleChange}
+                      required
+                    />
+                    <button
+                      type="button"
+                      onClick={togglePasswordVisibility}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+                      aria-label="Toggle password visibility"
+                    >
+                      {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+                    </button>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center">
+                    <input
+                      id="remember"
+                      name="rememberMe"
+                      type="checkbox"
+                      checked={formData.rememberMe}
+                      onChange={handleChange}
+                      className="h-4 w-4 text-[#005E11] focus:ring-[#005E11] border-gray-300 rounded"
+                    />
+                    <Label htmlFor="remember" className="ml-2 text-sm text-gray-600">
+                      Remember me
+                    </Label>
+                  </div>
+                  <Link
+                    href="/forgot-password"
+                    className="text-sm text-[#005E11] hover:text-[#004A0E] hover:underline"
+                  >
+                    Forgot password?
+                  </Link>
+                </div>
+
+                <Button
+                  type="submit"
+                  className="w-full h-12 bg-gradient-to-r from-[#005E11] to-[#004A0E] hover:from-[#004A0E] hover:to-[#003908] text-[#F2FFFC] font-semibold rounded-lg shadow-lg transition-all duration-200 flex items-center justify-center gap-2"
+                  disabled={loading}
+                >
+                  {loading ? (
+                    <>
+                      <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent"></div>
+                      Signing in...
+                    </>
+                  ) : (
+                    <>
+                      Sign In
+                      <ArrowRight className="h-4 w-4" />
+                    </>
+                  )}
+                </Button>
+              </form>
+
+              {/* Footer Links */}
+              <div className="mt-8 text-center">
+                <p className="text-gray-600">
+                  Don&apos;t have an account?{" "}
+                  <Link
+                    href="/register"
+                    className="text-[#005E11] hover:text-[#004A0E] font-medium hover:underline"
+                  >
+                    Create Account
+                  </Link>
+                </p>
+              </div>
+            </div>
           </div>
-        </CardHeader>
 
-        <CardContent className="px-6 pb-8 pt-2">
-          {errors && Object.keys(errors).length > 0 && (
-            <div
-              className="bg-red-50 dark:bg-red-950/30 text-red-600 dark:text-red-300
-             text-xs px-4 py-3 mb-4 rounded-xl flex items-center
-              gap-2 "
-            >
-              <CircleAlert size={16} />
-              {errors[Object.keys(errors)[0]][0]}
-            </div>
-          )}
-
-          <form onSubmit={handleSubmit} className="space-y-5">
-            <div className="relative group">
-              <Mail className="absolute left-4 top-1/2 -translate-y-1/2 h-[18px] w-[18px] text-slate-400 group-focus-within:text-primary transition-colors duration-200" />
-              <Input
-                id="login"
-                name="login"
-                type="text"
-                autoComplete="username"
-                placeholder="Username or Email"
-                className="pl-12 h-12 bg-slate-50 dark:bg-slate-800/50 border-slate-200 dark:border-slate-700/50 rounded-lg ring-0 focus:border-primary focus:ring-1 focus:ring-primary text-slate-900 dark:text-white"
-                value={formData.login}
-                onChange={handleChange}
-                required
-              />
-            </div>
-
-            <div className="relative group">
-              <Lock className="absolute left-4 top-1/2 -translate-y-1/2 h-[18px] w-[18px] text-slate-400 group-focus-within:text-primary transition-colors duration-200" />
-              <Input
-                id="password"
-                name="password"
-                type={showPassword ? "text" : "password"}
-                autoComplete="current-password"
-                placeholder="Password"
-                className="pl-12 h-12 bg-slate-50 dark:bg-slate-800/50 border-slate-200 dark:border-slate-700/50 rounded-lg ring-0 focus:border-primary focus:ring-1 focus:ring-primary text-slate-900 dark:text-white"
-                value={formData.password}
-                onChange={handleChange}
-                required
-              />
-              <button
-                type="button"
-                onClick={togglePasswordVisibility}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-primary transition-colors p-1 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700/50"
-                aria-label="Toggle password visibility"
-              >
-                {showPassword ? (
-                  <EyeOff className="h-[18px] w-[18px]" />
-                ) : (
-                  <Eye className="h-[18px] w-[18px]" />
-                )}
-              </button>
-            </div>
-
-            <div className="flex items-center justify-between mt-1">
-              <div className="flex items-center gap-2">
-                <div className="relative inline-flex">
-                  <input
-                    type="checkbox"
-                    id="remember"
-                    name="rememberMe"
-                    checked={formData.rememberMe}
-                    onChange={handleChange}
-                    className="peer sr-only"
+          {/* Right Side - Photo/Image Placeholder */}
+          <div className="hidden lg:flex bg-gradient-to-br from-[#005E11] to-[#004A0E] items-center justify-center p-12">
+            <div className="text-center text-[#F2FFFC]">
+              <div className="mb-6">
+                <div className="bg-[#EDCE5C] p-6 rounded-full inline-block mb-4">
+                  <img
+                    src="/CCE_Logo.png"
+                    alt="UM-CCE Logo"
+                    className="h-16 w-16 object-contain"
                   />
                 </div>
-                <Label
-                  htmlFor="remember"
-                  className="text-sm text-slate-600 dark:text-slate-400 cursor-pointer select-none"
-                >
-                  <div
-                    className={cn(
-                      "h-[18px] w-[18px] rounded bg-slate-50",
-                      "dark:bg-slate-800/50 z-10",
-                      "border border-slate-200",
-                      "dark:border-slate-700/50 flex items-center justify-center",
-                      formData.rememberMe && "bg-primary border-primary"
-                    )}
-                  >
-                    {formData.rememberMe && <Check size={12} color="white" />}
-                  </div>
-                  Remember me
-                </Label>
               </div>
-              <Link
-                href="/forgot-password"
-                className="text-sm text-primary hover:text-primary/80 hover:underline transition-colors"
-              >
-                Forgot password?
-              </Link>
+              <h2 className="text-2xl font-bold mb-4">UM College of Computing Education</h2>
+              <p className="text-[#F2FFFC]/80 text-lg mb-6">
+                Empowering the next generation of technology leaders
+              </p>
             </div>
-
-            <Button
-              type="submit"
-              className="w-full h-12 rounded-lg bg-primary hover:bg-primary/90 text-white font-medium text-base shadow-lg shadow-primary/20 transition-all mt-4 relative group overflow-hidden"
-              disabled={loading}
-            >
-              <div className="absolute inset-0 w-3/12 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-45deg] -translate-x-full group-hover:animate-shimmer" />
-
-              <div className="flex items-center justify-center gap-1">
-                <span>{loading ? "Signing in..." : "Sign in"}</span>
-                <ArrowRight
-                  className={cn(
-                    "h-4 w-4",
-                    "group-hover:translate-x-1 transition-transform",
-                    loading && "hidden"
-                  )}
-                />
-              </div>
-            </Button>
-          </form>
-          <div className="mt-6 text-center text-sm">
-            Don&apos;t have an account?{" "}
-            <Link href={"/register"} className="underline underline-offset-2">
-              Sign Up
-            </Link>
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
     </div>
   );
 }

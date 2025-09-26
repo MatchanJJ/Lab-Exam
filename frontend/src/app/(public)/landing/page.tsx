@@ -195,53 +195,54 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-6">
-              <h2 className="text-4xl font-bold text-gray-900">About UM-CCE</h2>
-              <div className="space-y-4 text-lg text-gray-600">
-                <p>
-                  The University of Mindanao College of Computing Education has been at the forefront of 
-                  technology education in the Philippines for over 15 years. We are committed to providing 
-                  world-class education that prepares students for successful careers in the rapidly evolving 
-                  field of computing.
-                </p>
-                <p>
-                  Our programs are designed to combine theoretical knowledge with practical skills, ensuring 
-                  our graduates are industry-ready and capable of driving innovation in their chosen fields.
-                </p>
-              </div>
-              <div className="flex items-center space-x-4">
-                <Star className="h-5 w-5 text-yellow-400 fill-current" />
-                <span className="text-gray-700">CHED Recognized Programs</span>
-              </div>
+    <section id="about" className="min-h-screen mt-20 flex items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="mt-20 grid lg:grid-cols-2 gap-16 items-center">
+          <div className="space-y-6">
+            <h2 className="mt-40 text-4xl font-bold text-gray-900">About UM-CCE</h2>
+            <div className="space-y-4 text-lg text-gray-600">
+              <p>
+                The University of Mindanao College of Computing Education has been at the forefront of 
+                technology education in the Philippines for over 15 years. We are committed to providing 
+                world-class education that prepares students for successful careers in the rapidly evolving 
+                field of computing.
+              </p>
+              <p>
+                Our programs are designed to combine theoretical knowledge with practical skills, ensuring 
+                our graduates are industry-ready and capable of driving innovation in their chosen fields.
+              </p>
             </div>
-            
-            <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl p-8 text-white">
-              <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
-              <div className="space-y-4">
-                <div className="flex items-center space-x-3">
-                  <MapPin className="h-5 w-5 text-yellow-400" />
-                  <span>Matina Campus, Davao City, Philippines</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Mail className="h-5 w-5 text-yellow-400" />
-                  <span>cce@umindanao.edu.ph</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Phone className="h-5 w-5 text-yellow-400" />
-                  <span>(082) 300-5456</span>
-                </div>
-              </div>
-              <Button variant="secondary" size="lg" className="w-full mt-6" asChild>
-                <Link href="/register">Apply Now</Link>
-              </Button>
+            <div className="flex items-center space-x-4">
+              <Star className="h-5 w-5 text-yellow-400 fill-current" />
+              <span className="text-gray-700">CHED Recognized Programs</span>
             </div>
           </div>
+          
+          <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl p-8 text-white">
+            <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
+            <div className="space-y-4">
+              <div className="flex items-center space-x-3">
+                <MapPin className="h-5 w-5 text-yellow-400" />
+                <span>Matina Campus, Davao City, Philippines</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Mail className="h-5 w-5 text-yellow-400" />
+                <span>cce@umindanao.edu.ph</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Phone className="h-5 w-5 text-yellow-400" />
+                <span>(082) 300-5456</span>
+              </div>
+            </div>
+            <Button variant="secondary" size="lg" className="w-full mt-6" asChild>
+              <Link href="/register">Apply Now</Link>
+            </Button>
+          </div>
         </div>
-      </section>
+      </div>
+    </section>
+
+
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">

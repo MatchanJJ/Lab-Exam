@@ -7,7 +7,7 @@
 **Linux/macOS:**
 ```bash
 # 1. Navigate to project directory
-cd cs-15-lab-act
+   cd cs-15-lab-act
 
 # 2. Run setup script (installs dependencies & configures everything)
 chmod +x setup.sh && ./setup.sh
